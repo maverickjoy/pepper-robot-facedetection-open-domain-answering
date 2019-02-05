@@ -1,0 +1,70 @@
+topic: ~face_detect_greeter()
+language: enu
+
+concept:(pepper) [pepper papa becaa peppa]
+concept:(greetings) [hi I hello hey heyy "hey there" "hello ~pepper" "[hi I] ~pepper" "hello robot"]
+
+#
+# General Chat
+#
+
+u: (~greetings) noo no  ^rand[hi hello "hey there"] how are you ?
+    u1: ( how are you ) I am fine thank you
+    u1: ( [I I'm] * [fine good happy energetic] ) Its good to hear that
+    u1: ( [I I'm] * [sad sorry "not good" unhappy "not happy"] ) Ohh ! what happened ?
+      u2: (*) I understand, what to do few things aren't in our hand.
+        u3: (*) Don't worry ! Everything will be fine soon.
+
+u1: ( how are you ) I am fine thank you. How about you ?
+    u1: ( [I I'm] * [fine good happy energetic] ) Its good to hear that
+    u1: ( [I I'm] * [sad sorry "not good" unhappy "not happy"] ) Ohh ! what happened ?
+      u2: (*) I understand, what to do few things aren't in our hand.
+        u3: (*) Don't worry ! Everything will be fine soon.
+
+u: ( [program programmed] do ) I am programmed by ^pCall(ALMemory.raiseEvent("developer_name_event", "true")) $developerName
+u: ( [program programmed] you ) I am programmed by ^pCall(ALMemory.raiseEvent("developer_name_event", "true")) $developerName
+
+u: ( created you ) I am created at Softbank Robotics but programmed by ^sCall(ALMemory.raiseEvent("developer_name_event", "true")) $developerName
+u: ( [developed develop] you ) I am created at Softbank Robotics but programmed by ^pCall(ALMemory.raiseEvent("developer_name_event", "true")) $developerName
+
+
+u: ( what * {present} time ) $specific_question_event="TIME"
+
+u: ( [what which] * date * [today today's present] ) $specific_question_event="DATE"
+u: ( [what which] * [today today's present] * date ) $specific_question_event="DATE"
+
+u: ( what * [today today's present] * day ) $specific_question_event="DAY"
+u: ( what * day * [today today's present] ) $specific_question_event="DAY"
+
+u: ( what *  present * month ) $specific_question_event="MONTH"
+u: ( what * month * present ) $specific_question_event="MONTH"
+u: ( which month is [it now] ) $specific_question_event="MONTH"
+
+
+u: ( what *  present * year ) $specific_question_event="YEAR"
+u: ( what * year * present ) $specific_question_event="YEAR"
+u: ( which year is [it now] ) $specific_question_event="YEAR"
+
+u: ( what * your * name ) My name is Pepper Robot.
+
+u: ( [what tell] * your * age ) Vikram told me that I am 7 years old, but I still think I dont grow old.
+u: ( how * [old aged age] * you ) Vikram told me last time that I am 7 years old, but I still think I dont grow old.
+
+u: ( where * you * [present located live] ) I am currently situated in Mobiliya's Pune Office
+
+u: ( Thank you ) Welcome, Have a good day
+
+
+#
+# Program Specific Chat
+#
+
+u: (can you register [me myself]) $register_human_event="True"
+u: (please remmeber [me myself]) $register_human_event="True"
+u: (* [remmeber register] [me myself]) $register_human_event="True"
+
+
+
+# Very Important : 1st one will just give the input user said, second one which is commented will give and repeat both.
+u: (_*) $userInput = $1  ^pCall(ALMemory.raiseEvent("unknown_input_event", $userInput))
+# u: (_*) $Dialog/LastInput
