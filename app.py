@@ -102,7 +102,7 @@ class FaceRecognitionGreeter(object):
         # INITIALISING Variables
         self.imageNo2d          = 1
         self.lastGuestTimestamp = 0
-        self.startFaceTraining  = True
+        self.startFaceTraining  = False
         self.userName           = '-'
 
     def create_callbacks(self):
