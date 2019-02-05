@@ -348,7 +348,7 @@ class FaceRecognitionGreeter(object):
             if videoPresent:
                 self.tablet_service.playVideo(view_url)
             else:
-                # self.tablet_service.showImageNoCache(view_url) # wont use this because we have toss images which are constant here
+                # self.tablet_service.showImageNoCache(view_url) # wont use this because we have images which are constant here
                 self.tablet_service.showImage(view_url)
 
             print "Displaying on tablet : " + view_url
