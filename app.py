@@ -245,7 +245,10 @@ class FaceRecognitionGreeter(object):
         else:
             self._makePepperSpeak("Sorry I couldn't register you at the moment please try after some time")
 
+        # Initializing the Detection Model
+        self.face_detector.scanKnownFaces()    
         self.startFaceTraining = False
+        self.lastGuestTimestamp = 0
         return
 
     def _startFrameDetect(self, image):
