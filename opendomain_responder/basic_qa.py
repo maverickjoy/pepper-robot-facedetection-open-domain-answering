@@ -3,6 +3,7 @@ import json
 import requests
 import mechanize
 from bs4 import BeautifulSoup
+from mathsolver import mathsolver
 from geo_locator import GeoLocator
 
 # INITIALISING AUTO ANSWER BOT
@@ -100,7 +101,11 @@ def answerQues(ques):
 
                 return answer
 
-        if _checkWeatherQuestion(ques):
+        # Get Result For calculation question
+        res = mathsolver.solve(ques)
+        if res[0]: # Check Status
+            ans = res[1]
+        elif _checkWeatherQuestion(ques):
             ans = _findTemperature(ques)
         elif 'who' in ques:
             ans = _whois()
