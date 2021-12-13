@@ -18,7 +18,7 @@ idna==2.8
 jellyfish==0.6.1
 jieba==0.35
 kiwisolver==1.0.1
-lxml==3.3.5
+lxml==4.6.5
 mathsolver==0.0.1
 matplotlib==2.2.3
 mechanize==0.4.0
