@@ -23,7 +23,7 @@ mathsolver==0.0.1
 matplotlib==2.2.3
 mechanize==0.4.0
 newspaper==0.1.0.7
-numpy==1.16.0
+numpy==1.22.0
 opencv-python==4.0.0.21
 Pillow==5.4.1
 PTable==0.9.2
